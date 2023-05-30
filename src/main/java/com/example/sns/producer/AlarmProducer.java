@@ -15,6 +15,7 @@ public class AlarmProducer {
     @Value("${spring.kafka.topic.alarm}")
     private String topic;
 
+    
     public void send(AlarmEvent event){
         kafkaTemplate.send(topic,event.getReceiveUserid(),event);
         log.info("Send to Kafka finished");
